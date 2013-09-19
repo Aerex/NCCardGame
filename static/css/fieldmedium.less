@@ -1,0 +1,633 @@
+/* Color Variables*/
+
+@gray: #999999;
+@black: #FF000000;
+@white: #FFFFFFFF;
+@parchment: #FFFFC2;
+@skyblue: #E1EAF3;
+@navyblue : #000080;
+@forestgreen: #228B22;	
+@lightindigo: #7B6FAC;
+
+@centerField_width: 517px;
+@centerField_height: 714px;
+@shinobifield-pl-width: 350px;
+@shinobifield-p1-height: 70px;
+
+body
+{
+	overflow: hidden;
+}
+
+#center_field
+{
+	border: 1px solid black;
+	width: @centerField_width;
+	height: @centerField_height;
+	margin: 0px auto;
+}
+
+/*Player One Field (HAND)*/
+
+ul.hand, ul.field, ul.stacks, ul.shop_set_one, ul.shop_set_two, ul.shop_set_three {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	height: 6%;
+}
+
+ul.shop_set_two
+{
+	margin-top: 8px;
+}
+ul.field
+{
+	margin-bottom: 6%;
+}
+
+
+ul.list
+{
+	list-style-type: none;
+	margin: 0px;
+	padding: 1px;
+}
+li
+{
+	float: left;
+	font-family: Garmond;
+	font-size: 18px;
+}
+div#image
+{
+	position: relative;
+	width:100%;
+	height:50%;
+	background-color:black;
+	margin-top: 10%;
+}
+
+section#descr
+{
+	position: relative;
+	margin: 0px auto;
+	width: 50%;	
+}
+
+
+section#effects
+{
+	width:100%;
+	word-wrap: break-word;
+	margin-top: 92%;
+	height: 15%;
+
+}
+p
+{
+	padding: 11px;
+	margin: 16px;
+	text-align: left;
+	font-size: 12px;
+	word-wrap: normal;
+}
+
+section.content
+{
+	float: left;
+	width: 46%;
+	position: relative;
+	top:52%;
+	left: 4%;
+}
+
+section.groups
+{
+	margin-top: -15%;
+	margin-left: 75%;
+	position: relative;
+	font-size: 13px;
+	font-family: Garmond;
+
+	/*position: fixed;*/
+}
+#hand1, #hand2
+{
+	position: relative;
+/*	border: 1px solid black;
+*/	width: 22%;/*@shinobifield-pl-width*/;
+	height: 8.6%;/*@shinobifield-p1-height*/;
+	margin: 5px auto;
+	min-width: @shinobifield-pl-width;
+	min-height: @shinobifield-p1-height;
+}
+
+#shinobi-field-P1, #shinobi-field-P2
+{
+	margin-left:31%;
+	width: 32%;/*@shinobifield-pl-width+239;*/
+	height: 9.6%;/*@shinobifield-p1-height+20;*/
+	min-height: @shinobifield-p1-height+20;
+	min-width: @shinobifield-pl-width+239;
+	bottom: 98px;
+	position: relative;
+}
+#shinobi-field-P1
+{
+	top: -53%;
+}
+
+#shinobi_one_P1, #shinobi_two_P1, #shinobi_three_P1, #shinobi_four_P1, #shinobi_five_P1, #shinobi_queue_P1,
+#shinobi_one_P2, #shinobi_two_P2, #shinobi_three_P2, #shinobi_four_P2, #shinobi_five_P2, #shinobi_queue_P2
+{
+	float: left;
+	border: 2px dotted black;
+	border-radius: 12px;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	background: @skyblue;
+	opacity: 0.7;
+	width: 10.3%;/*80px;*/
+	height: 67.2%;/*80px;*/
+	margin-top: 1px;
+	margin-left: 1%;
+	min-width: 60px;
+	min-height: 60px;
+}
+
+#shinobi_one_P1, #shinobi_one_P2
+{
+	margin-left: 11%;
+}
+
+#shinobi_queue_P2
+{
+	margin-left: 3%;
+}
+#shinobi_queue_P1
+{
+	margin-left: 3%;
+}
+
+
+
+#hand2
+{
+	/*position: relative;
+	width: @shinobifield-pl-width;
+	height: @shinobifield-p1-height;
+	margin: 5px auto;
+	*/
+	bottom: 25px;
+	margin-left: 37%;
+	top: -13%;
+}
+
+#hand1
+{
+	top: -54%;
+	margin-left: 38%;
+}
+
+.preview-facedown
+{
+	border-radius: 7px;
+	border-color: @gray;
+	background: @gray;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	width: 100%;
+	height:100%;
+	border: 3px solid black;
+
+}
+
+.preview-shinobi-small
+{
+	border-radius: 7px;
+	border-color: @gray;
+	background: @parchment;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	width: 100%;
+	height:100%;
+	border: 3px solid black;
+}
+
+.preview-jutsu-small
+{
+	border-radius: 7px;
+	border-color: @gray;
+	background: @navyblue;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	width: 100%;
+	height:100%;
+	border: 3px solid black;
+}
+
+.preview-cabl-small
+{
+	border-radius: 7px;
+	border-color: @gray;
+	background: #CCCCCC;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	width: 100%;
+	height: 100%;
+	border: 3px solid black;
+}
+
+.preview-special-small
+{
+	border-radius: 7px;
+	border-color: @gray;
+	background: #D4A017;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	width: 100%;
+	height: 100%;
+	border: 3px solid black;
+}
+
+.preview-ability-small
+{
+	border-radius: 7px;
+	border-color: @gray;
+	background: #228B22;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	width: 100%;
+	height:100%;
+	border: 3px solid black;
+}
+
+.preview-item-small
+{
+	border-radius: 7px;
+	border-color:@gray;
+	background: #3D3D3D;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	width: 100%;
+	height: 100%;
+	border: 3px solid black;
+
+}
+.preview-event-small
+{
+	border-radius: 7px;
+	border-color:@gray;
+	background: #7b71a6;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	width: 100%;
+	height: 100%;
+	border: 3px solid black;
+
+}
+
+.stacked_cards
+{
+	width: 4%;
+	height: 8%;
+	display: inline-block;
+	position: absolute;
+	margin: 0px;
+	padding: 0px;
+	transition: all 750ms ease-in-out;
+	perspective: 800px;
+	-webkit-perspective: 800px; /* Safari and Chrome*/
+	perspective-origin: 50% 100px;
+	-webkit-perspective-origin: 50% 100px; /* Safari and Chrome qq*/
+}
+.flip1
+{
+	-webkit-transform: rotateY(180deg) translate(-6px, 63px);
+}
+
+.flip2
+{
+	-webkit-transform: rotateY(180deg) translate(-5px, 193px);
+}
+
+.flip3
+{
+	-webkit-transform: rotateY(180deg) translate(-5px, 263px);
+}
+
+#gameField
+{
+	border: 1px solid black;
+	position: relative;
+	width: 1024px;
+	height: 768px;
+	margin: 0px auto;	
+	overflow: hidden;
+	bottom: 6px;
+}
+
+
+li.card1_pos, li.card2_pos, li.nextcard_pos
+{
+	float: left;
+	width: 17%;
+	height: 85%;/*84%;*/
+	margin: 3px;
+	min-width: 60px;
+	min-height: 60px;
+	max-width: 60px;
+	max-height: 60px;
+	
+}
+
+
+li.card2_pos
+{
+	margin-left: 4px;
+	margin-top: 3px;
+}
+
+
+li.nextcard_pos
+{
+	margin-left: 7px;
+	margin-top: 3px;
+}
+
+/*Deck Shop CSS*/
+
+#deckShop
+{
+	border: 1px solid black;
+	width: 40%;/*34%;*/
+	height: 200px;
+	margin-left: 37%;
+	margin-bottom: 11%;
+	margin-top: -42%;
+	min-height: 330px;
+	min-width: 411px;
+	display: inline-block;
+	top: 3%;
+}
+
+
+li.stack_cola, li.stack_colb
+{
+	float: left;
+	border: 1px dotted black;
+	width: 10%;
+	height: 10%;
+	min-width: 49px;
+	min-height: 62px;
+}
+
+li.stack_colb
+{
+	margin-left: 2%;
+}
+
+
+#status_bar
+{
+	border: 1px solid black;
+	width: 403px;
+	height: 51px;
+	margin: 0px auto;
+	margin-top: 23%;
+}
+
+#cardPreview
+{
+	width:30%;
+	height: 54%;
+	position: relative;
+	left: 2%;
+	top: 1%;
+	background-repeat: no-repeat;
+}
+.cardText
+{
+	font-family: Garmond;
+	font-size: 18px;
+	position: relative;
+	left: 10%;
+	top: 7%;
+}
+
+.cardCost
+{
+	font-family: Garmond;
+	font-size: 18px;
+	position: relative;
+	left: 80%;	
+
+}
+
+
+#shinobi_hp
+{
+	position: relative;
+	font-family: Garmond;
+	font-size: 29px;
+	top:-12%;
+	left: 81%;
+	padding: 3px;
+}
+
+#prereq
+{
+	position: relative;
+	width: 100%;
+	height: 10%;
+	top:45%;
+}
+
+#lobbypanel
+{
+	width: 1024px;
+	height: 768px;
+	margin: 0px auto;
+	overflow: hidden;
+	z-index: 100;
+}
+
+div#panel
+{
+	border: 1px solid black;
+	position: relative;
+	width: 600px;
+	height: 600px;
+	margin: 0px auto;	
+	margin-top: 100px;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	float:	left;
+	margin-left: 20px;	
+	overflow-y: scroll;
+}
+
+
+div.row1
+{
+	position: relative;
+width: 85%;
+border: 1px solid;
+-webkit-border-radius: 7px;
+height: 90px;
+margin: 0 auto;
+margin-top: 30px;
+}
+
+div.tablename
+{
+	position: relative;
+	padding: 10px;
+	width: 100px;
+	float: left;
+}
+div.decktype
+{
+	position: relative;
+	padding: 10px;
+	width: 150px;
+	float: left;
+}
+
+div.p1
+{
+	position: relative;
+	padding: 10px;
+	float: left;
+	display: inline;
+}
+div.p2
+{
+	position: relative;
+	padding: 10px;
+	float: left;
+	display: inline;
+}
+
+div#clear
+{
+	clear:both;
+}
+
+div.createTable
+{
+	position: relative;
+	width: 150px;
+	height: 50px;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	border: 1px solid;
+	padding: 10px;
+	text-align: center;
+	margin-top: 100px;
+	float: left;
+	margin-left: 15px;
+	cursor: pointer;
+	line-height: 44px;
+}
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,1); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: black;
+    -webkit-box-shadow: inset 0 0 6px #eff; 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: black; 
+}
+
+div#tableMenu
+{
+	width: 500px;
+	height: 100px;
+	border: 1px solid;
+	position: fixed;
+	margin-left: -180px;
+	margin-top: -94px;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	z-index: 101;
+	background: rgba(0,0,0,.3);
+	left: 50%;
+	top: 50%;
+}
+
+div.tableNameLabel
+{
+	padding: 20px;
+	font-size: 18px;
+	float: left;
+}
+
+div.tableNameLabel > input
+{
+	position: relative;
+}
+
+div#clear
+{
+	clear: both;
+}
+
+div.submitTable
+{
+	width: 100px;
+	height: 25px;
+	border: 1px solid;
+	float: right;
+	margin-right: 10px;
+	text-align: center;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 7px;
+	cursor:pointer;
+}
+
+div.joinbutton
+{
+	position: relative;
+	padding: 10px;
+	float: right;
+	margin-right: 30px;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	border: 1px solid;
+	width: 50px;
+	text-align: center;
+	cursor: pointer;
+}
+
+div#navPhase
+{
+	width: 48px;
+	height: 42px;
+	position: fixed;
+	background-color: blue;
+	top: 300px;
+	opacity: .3;
+	border-radius: 13px;
+	-webkit-border-radius: 13px;
+	-moz-border-radius: 13px;
+	margin-left: 2%
+}
+
+div.loading
+{
+	background-image: url('./gif/loading.gif');
+}

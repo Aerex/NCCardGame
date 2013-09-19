@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>NC TCG - Beta</title>
+</head>
+<body>
+<div ng-include="template.url" style="display:none;" id="tableMenu">
+</div>
+	<div id="lobbypanel">
+		<div highlightbutton opentablemenu class="createTable">Create Table</div>
+		<div id="panel">
+			<div ng-repeat="table in tables">
+				<div class="row1">
+					<div class="tablename">
+						{{table.name}}
+				</div>
+				<div class="decktype">
+					Deck Type: {{table.deckType}}
+				</div>
+				<div id="clear">
+				</div>
+				<div class="p1">
+					Player 1: {{table.players[0]}}
+				</div>
+				<div class="p2">
+					Player 2: {{table.players[1]}}
+				</div>
+				<div id={{table.tableId}} highlightbutton jointable ng-show="table.available" class="joinbutton">Join</div>
+				<div id="clear"></div>
+			</div>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/ng-template" id="tableCreation.html">
+		<div class="tableNameLabel">
+				Table Name:
+		</div>
+		<input style="margin: 20px; float:left" type="text" ng-model="tableName">
+		</input>
+		<div id="clear"></div>
+		<div createtable highlightbutton class="submitTable">Submit</div>	
+		<div killtable highlightbutton class="submitTable">Cancel</div>
+	</script>
+	<script type="text/ng-template" id="tableUserRequest.html">
+		<div id="label" class="tableNameLabel">{{requestMsg}}</div>
+		<div id="clear"></div>
+		<div acceptuser highlightbutton class="submitTable">OK</div>	
+		<div denyuser highlightbutton class="submitTable">Cancel</div>
+	</script>
+	<script type="text/ng-template" id="waitingRequest.html">
+		<div id="label" class="tableNameLabel">Waiting for host</div>
+		<div id="clear"></div>
+		<div class="loading"></div>
+	</script>
+</body>
+</html>
+

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="NC">
+<head>
+  <meta charset="utf-8">
+  <title>NC TCG - Beta</title>
+  <link rel="stylesheet/less" type="text/css" href="static/css/fieldmedium.less"/>
+  <!--link id="size-style" rel='stylesheet'
+  type="text/css" media='screen and (min-width: 900px) and (max-width: 1024px)' href="static/css/fieldmedium.less" />
+  <!--link rel="stylesheet" href="../static/css/app.css"-->
+  
+  <script src="static/js/socket.io.js"></script>
+  <script src="static/js/angular.min.js"></script>
+  <script src="static/js/less.min.js"></script>
+  <script src="controllers/app.js"></script>
+ 
+  <script src="controllers/StartCtrl.js"></script>
+  <script src="controllers/FieldCtrl.js"></script>
+  <script src="controllers/LobbyCtrl.js"></script>
+  <script src="services/CardListService.js"></script>
+   <script src="services/socket.io.Service.js"></script>
+  <script src="directives/MainDirective.js"></script>
+ </head>
+<body>
+  <div ng-view></div>
+
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>NC TCG - Beta</title>
+</head>
+<body>
+	<div id="gameField">
+		<input ng-model="name"></input>
+		<div ng-include src="template.url" id="cardPreview">
+		</div>
+					
+		<div id="hand1">		
+			<ul class="hand">
+				<!-- the hand will be generated through ng-repeat or some other event handler-->
+				<li ng-mouseover="zoom(card1)" class="card1_pos" id="card1"> <!--ID will contain the card number-->
+					<canvas class="preview-facedown">
+					</canvas>
+				</li>
+				<li class="card2_pos" id="card2">
+					<canvas class="preview-facedown">
+					</canvas>
+				</li>
+				<li class="nextcard_pos" id="card3">
+					<canvas class="preview-facedown">
+					</canvas>
+				</li>
+				<li class="nextcard_pos" id="card4">
+					<canvas class="preview-facedown">
+					</canvas>
+				</li>
+				<li class="nextcard_pos" id="card5">
+					<canvas class="preview-facedown">
+					</canvas>
+				</li>
+			</ul>
+		</div>
+		<div id="shinobi-field-P1">
+			<ul class="field">
+				<li id="shinobi_one_P1"></li>
+				<li id="shinobi_two_P1"></li>
+				<li id="shinobi_three_P1"></li>
+				<li id="shinobi_four_P1"></li>
+				<li id="shinobi_five_P1"></li>
+				<li id="shinobi_queue_P1"></li>
+			</ul>
+		</div>	
+		<div id="deckShop">
+			<ul class="stacks">
+				<li class="stack_cola" id="shinobi_stack">
+					<span ng-repeat="stack in shinobiStack" style="display: block; width: 100%;">
+						<span flip style="z-index: {{stack.stack_index}}" class="stacked_cards" id="#s_{{stack.stack_index}}">
+							<canvas id="#s_{{stack.stack_index}}" updatecard class="preview-facedown">
+									{{stack._id}}
+							</canvas>
+						</span>
+					</span>
+				</li>
+				<li class="stack_colb" id="ability_stack">
+					<span ng-repeat="stack in abilityStack" style="display: block; width: 100%;">
+						<span flip style="z-index: {{stack.stack_index}}" class="stacked_cards" id="#a_{{stack.stack_index}}">
+							<canvas id="#a_{{stack.stack_index}}" updatecard class="preview-facedown">
+								{{stack._id}}
+							</canvas>
+						</span>
+					</span>
+				</li>
+				<li class="stack_colb"id="item_stack">
+					<span ng-repeat="stack in itemStack" style="disp lay: block; width: 100%;">
+						<span flip style="z-index: {{stack.stack_index}}" class="stacked_cards" id="#i_{{stack.stack_index}}">
+							<canvas id="#i_{{stack.stack_index}}" updatecard class="preview-facedown">
+								{{stack._id}}
+							</canvas>
+						</span>
+					</span>
+				</li>
+				<li class="stack_colb"id="event_stack">
+					<span ng-repeat="stack in eventStack" style="display: block; width: 100%;">
+							<span flip style="z-index: {{stack.stack_index}}" class="stacked_cards" id="#e_{{stack.stack_index}}">
+								<canvas id="#e_{{stack.stack_index}}" updatecard class="preview-facedown">
+									{{stack._id}}
+								</canvas>
+							</span>
+					</span>
+				</li>
+				<li class="stack_colb"id="CABL_stack">
+					<span ng-repeat="stack in cablStack" style="display: block; width: 100%;">
+							<span flip style="z-index: {{stack.stack_index}}" class="stacked_cards" id="#c_{{stack.stack_index}}">
+								<canvas id="#c_{{stack.stack_index}}" updatecard class="preview-facedown">
+									{{stack._id}}
+								</canvas>
+							</span>
+					</span>
+				</li>
+				<li class="stack_colb" id="special_stack">
+					<span ng-repeat="stack in specialStack" style="display: block; width: 100%;">
+							<span flip style="z-index: {{stack.stack_index}}" class="stacked_cards" id="#x_{{stack.stack_index}}">
+								<canvas id="#x_{{stack.stack_index}}" updatecard class="preview-facedown">
+									{{stack._id}}
+								</canvas>
+							</span>
+					</span>
+				</li>
+				<li class="stack_colb"id="jutsu_stack">
+					<span ng-repeat="stack in jutsuStack" style="display: block; width: 100%;">
+							<span flip style="z-index: {{stack.stack_index}}" class="stacked_cards" id="#j_{{stack.stack_index}}">
+								<canvas id="#j_{{stack.stack_index}}" updatecard class="preview-facedown">
+								</canvas>
+							</span>
+					</span>
+				</li>
+			</ul>
+			<ul class="shop_set_one">
+				<li class="stack_cola" id="shinobi_set_one"></li>
+				<li class="stack_colb" id="ability_set_one"></li>
+				<li class="stack_colb" id="item_set_one"></li>
+				<li class="stack_colb" id="event_set_one"></li>
+				<li class="stack_colb" id="CABL_set_one"></li>
+				<li class="stack_colb" id="special_set_one"></li>
+				<li class="stack_colb" id="jutsu_stack"></li>
+			</ul>
+			<div ng-click="zoomPreviewCard();"id="status_bar">
+				 <nav>
+				 	<ul style="list-style: none;">
+				 		<li style="padding-left:20px;">Draw</li>
+				 		<li style="padding-left: 20px;">></li>
+				 		<li style="padding-left: 20px;">Buy</li>
+				 		<li style="padding-left:20px">></li>
+				 		<li style="padding-left:20px">Action</li>
+				 		<li style="padding-left:20px;">></li>
+	  					<li style="padding-left:20px;">MP2</li>
+	  				</ul>
+	  			</nav>
+			</div>
+			<ul class="shop_set_two">
+				<li class="stack_cola" id="shinobi_set_two"></li>
+				<li class="stack_colb" id="ability_set_two"></li>
+				<li class="stack_colb" id="item_set_two"></li>
+				<li class="stack_colb" id="event_set_two"></li>
+				<li class="stack_colb" id="CABL_set_two"></li>
+				<li class="stack_colb" id="special_set_two"></li>
+				<li class="stack_colb" id="jutsu_set_two"></li>
+			</ul>
+
+			<ul class="shop_set_three">
+				<li class="stack_cola" id="shinobi_set_three"></li>
+				<li class="stack_colb" id="ability_set_two"></li>
+				<li class="stack_colb" id="item_set_two"></li>
+				<li class="stack_colb" id="event_set_two"></li>
+				<li class="stack_colb" id="CABL_set_two"></li>
+				<li class="stack_colb" id="special_set_two"></li>
+				<li class="stack_colb" id="jutsu_set_two"></li>
+			</ul>
+		</div>
+		<div id="shinobi-field-P2">
+			<ul class="field">
+				<li id="shinobi_one_P2"></li>
+				<li id="shinobi_two_P2"></li>
+				<li id="shinobi_three_P2"></li>
+				<li id="shinobi_four_P2"></li>
+				<li id="shinobi_five_P2"></li>
+				<li id="shinobi_queue_P2"></li>
+			</ul>
+		</div>
+		<div id="hand2">		
+			<ul class="hand">
+				<li class="card1_pos" id="card6"> 
+					<canvas class="preview-shinobi-small">
+					</canvas>
+				</li>
+				<li class="card2_pos" id="card7">
+					<canvas class="preview-jutsu-small">
+					</canvas>
+				</li>
+				<li class="nextcard_pos" id="card8">
+					<canvas class="preview-ability-small">
+					</canvas>
+				</li>
+				<li class="nextcard_pos" id="card9">
+					<canvas class="preview-special-small">
+					</canvas>
+				</li>
+				<li class="nextcard_pos" id="card10">
+					<canvas class="preview-special-small">
+					</canvas>
+				</li>
+			</ul>
+		</div> 
+	</div>
+	</div>
+	  <!-- shinobi_template.html -->
+  <script type="text/ng-template" id="shinobi_template.html">
+    <section class="cardText">
+				{{cardPreview.cardName}}
+	</section>
+	<section class="cardCost">
+		<ul class="list">
+			<li><img src="/static/img/cloudsymbol.png"></img></li>
+			<li style="margin-left:5%;">{{cardPreview.cardCost}}</li>
+		</ul>
+	</section>
+	<section class="content" id="stats">
+	<ul class="list">
+		<li>{{cardPreview.N_acc}}/{{cardPreview.N_d}}</li>
+		<li style="margin-left:29%;">{{cardPreview.T_acc}}/{{cardPreview.T_d}}</li>
+	</ul>
+	<ul class="list">
+		<li>{{cardPreview.G_dc}}/{{cardPreview.G_save}}</li>
+		<li style="margin-left:29%;">{{cardPreview.stealth}}/{{cardPreview.awareness}}</li>
+	</ul>
+	</section>
+	<section class="content groups">{{cardPreview.shinobi_group}}<br> {{cardPreview.blca}} <br> {{cardPreview.kinjutsu}}
+	</section>
+	<section style="width: 71%;" id="effects"><p>{{cardPreview.effectText}}</p></section>
+	<section id="shinobi_hp">{{cardPreview.hp}}</section>
+  </script>
+
+  <!-- ability template.html -->
+  <script type="text/ng-template" id="ability_template.html">
+  	<section class="cardText">
+  		{{cardPreview.cardName}}
+  	</section>
+  	<section class="cardCost">
+		<ul class="list">
+			<li style="margin-left:5%;">{{cardPreview.cardCost}}
+			</li>
+		</ul>
+	</section>
+	<section id="prereq">
+		<p>Prerequisite: {{cardPreview.prereq}}</p>
+	</section>
+	<section style="margin-top: 59%;" id="effects">
+		<p>{{cardPreview.effect}}</p>
+	</section>
+  </script>
+
+  <!-- item template.html -->
+  <script type="text/ng-template" id="item_template.html">
+  	<section style="color:white;" class="cardText">
+  		{{cardPreview.cardName}}
+  	</section>
+  	<section style="color:white;" class="cardCost">
+		<ul class="list">
+			<li style="margin-left:5%;">{{cardPreview.cost}}
+			</li>
+		</ul>
+	</section>
+	<section style="margin-top:70%; color:white;" id="ap_cost">
+		<p>AP Cost: {{cardPreview.apCost}}</p>
+	</section>
+	<section style="margin-top: -8%; color:white;">
+		<p>{{cardPreview.effect}}</p>
+	</section>
+  </script>
+
+  <!-- event template.html -->
+  <script type="text/ng-template" id="event_template.html">
+  	<section class="cardText">
+  		{{cardPreview.cardName}}
+  	</section>
+  	<section class="cardCost">
+  		<ul class="list">
+  			<li style="margin-left:5%;">
+  				{{cardPreview.cost}}
+			</li>
+  		</ul>
+  	</section>
+  	<section style="margin-top: 78%; color:white;">
+		<p>{{cardPreview.effect}}</p>
+	</section>
+  	<section id="shinobi_hp" style="top:-1%; left:86%;">{{cardPreview.hp}}
+  	</section>
+  </script>
+
+  <!--- CA/BL template.html -->
+  <script type="text/ng-template" id="cabl_template.html">
+  	<section class="cardText">
+  		{{cardPreview.cardName}}
+  	</section>
+  	<section class="cardCost">
+		<ul class="list">
+			<li style="margin-left:5%;">{{cardPreview.cardCost}}
+			</li>
+		</ul>
+	</section>
+	<section id="prereq" style="top: 60%;">
+		Prerequisite: {{cardPreview.prereq}}
+	</section>
+	<section style="top: 50%; position: relative; left:62%;" id="ap_cost">
+		AP Cost: {{cardPreview.apCost}}
+	</section>
+	<section style="margin-top: 69%;" id="effects">
+		<p>{{cardPreview.effect}}</p>
+	</section>
+  </script>
+
+
+  <!--- special template.html -->
+  <script type="text/ng-template" id="special_template.html">
+  	<section class="cardText">
+  		{{cardPreview.cardName}}
+  	</section>
+  	<section class="cardCost">
+		<ul class="list">
+			<li style="margin-left:5%;">{{cardPreview.cardCost}}
+			</li>
+		</ul>
+	</section>
+	<section id="prereq" style="top: 60%;">
+		Prerequisite: {{cardPreview.prereq}}
+	</section>
+	<section style="top: 50%; position: relative; left:67%;" id="ap_cost">
+		AP Cost: {{cardPreview.apCost}}
+	</section>
+	<section style="margin-top: 69%;" id="effects">
+		<p>{{cardPreview.effect}}</p>
+	</section>
+  </script>
+
+   <!--- jutsu template.html -->
+  <script type="text/ng-template" id="jutsu_template.html">
+  	<section style="color: white;" class="cardText">
+  		{{cardPreview.cardName}}
+  	</section>
+  	<section style= "color: white;"class="cardCost">
+		<ul class="list">
+			<li style="margin-left:5%;">{{cardPreview.cardCost}}
+			</li>
+		</ul>
+	</section>
+	<section id="prereq" style="top: 60%; color: white;">
+		Prerequisite: {{cardPreview.prereq}}
+	</section>
+	<section style="top: 50%; position: relative; left:67%; color: white;" id="ap_cost">
+		AP Cost: {{cardPreview.apCost}}
+	</section>
+	<section style="margin-top: 69%; color: white;" id="effects">
+		<p>{{cardPreview.effect}}</p>
+	</section>
+  </script>
+
+</body>
+</html>
+
